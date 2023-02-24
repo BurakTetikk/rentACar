@@ -20,6 +20,6 @@ public class CarManager implements CarService {
 
     @Override
     public List<Car> getAll() {
-        return carDao.findAll();
+        return this.carDao.findAll();
     }
 }
