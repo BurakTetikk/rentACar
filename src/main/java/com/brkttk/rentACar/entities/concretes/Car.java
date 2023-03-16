@@ -43,4 +43,7 @@ public class Car {
     @Column(name = "websitesi")
     private String websitesi;
 
+    @ManyToOne()
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
