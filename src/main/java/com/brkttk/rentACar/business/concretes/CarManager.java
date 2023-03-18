@@ -33,4 +33,44 @@ public class CarManager implements CarService {
         this.carDao.save(car);
         return new SuccessResult(car.getMarka() + " eklendi");
     }
+
+    @Override
+    public DataResult<Car> getById(int id) {
+        return new SuccessDataResult<Car>(this.carDao.getById(id), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByMarka(String marka) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByMarka(marka), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByMarkaAndModel(String marka, String model) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByMarkaAndModel(marka, model), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByMarkaOrModel(String marka, String model) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByMarkaOrModel(marka, model), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByCategoryIdIn(List<Integer> categories) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByCategoryIdIn(categories), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByMarkaContains(String marka) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByMarkaContains(marka), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByCategoryStartsWith(String marka) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByCategoryStartsWith(marka), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getByCategoryEndsWith(String marka) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByCategoryEndsWith(marka), "Araç listelendi.");
+    }
 }

@@ -11,4 +11,20 @@ public interface CarService {
     DataResult<List<Car>> getAll();
 
     Result add(Car car);
+
+    DataResult<Car> getById(int id);
+
+    DataResult<List<Car>> getByMarka(String marka);
+
+    DataResult<List<Car>> getByMarkaAndModel(String marka, String model);
+
+    DataResult<List<Car>> getByMarkaOrModel(String marka, String model);
+
+    DataResult<List<Car>> getByCategoryIdIn(List<Integer> categories);
+
+    DataResult<List<Car>> getByMarkaContains(String marka);
+
+    DataResult<List<Car>> getByCategoryStartsWith(String marka);
+
+    DataResult<List<Car>> getByCategoryEndsWith(String marka);
 }
