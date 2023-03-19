@@ -8,6 +8,9 @@ import com.brkttk.rentACar.core.utilities.results.SuccessResult;
 import com.brkttk.rentACar.dataAccess.abstracts.CarDao;
 import com.brkttk.rentACar.entities.concretes.Car;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -72,5 +75,17 @@ public class CarManager implements CarService {
     @Override
     public DataResult<List<Car>> getByCategoryEndsWith(String marka) {
         return new SuccessDataResult<List<Car>>(this.carDao.getByCategoryEndsWith(marka), "Araç listelendi.");
+    }
+
+    @Override
+    public DataResult<List<Car>> getAll(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return new SuccessDataResult<List<Car>>(this.carDao.findAll(pageable).getContent());
+    }
+
+    @Override
+    public DataResult<List<Car>> getAllSorted() {
+        Sort sort = Sort.by(Sort.Direction.DESC, "marka");
+        return new SuccessDataResult<List<Car>>(this.carDao.findAll(sort));
     }
 }

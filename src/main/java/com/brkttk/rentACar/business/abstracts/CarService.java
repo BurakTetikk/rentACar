@@ -27,4 +27,7 @@ public interface CarService {
     DataResult<List<Car>> getByCategoryStartsWith(String marka);
 
     DataResult<List<Car>> getByCategoryEndsWith(String marka);
+
+    DataResult<List<Car>> getAll(int pageNo, int pageSize);
+    DataResult<List<Car>> getAllSorted();
 }

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/cars")
@@ -39,14 +38,32 @@ public class CarsController {
     public DataResult<List<Car>> getByMarka(@RequestParam String marka) {
         return this.carService.getByMarka(marka);
     }
-//
-//    List<Car> getByMarkaAndModel(String marka, String model);
-//
+
+    @GetMapping("/getByMarkaAndModel")
+    public DataResult<List<Car>> getByMarkaAndModel(@RequestParam String marka, @RequestParam String model) {
+        return this.carService.getByMarkaAndModel(marka, model);
+    }
+
+    @GetMapping("/getByMarkaContains")
+    public DataResult<List<Car>> getByMarkaContains(@RequestParam String marka) {
+        return this.carService.getByMarkaContains(marka);
+    }
+
+    @GetMapping("/getAllByPage")
+    public DataResult<List<Car>> getAll(int pageNo, int pageSize) {
+        return this.carService.getAll(pageNo, pageSize);
+    }
+
+    @GetMapping("/getAllSorted")
+    public DataResult<List<Car>> getAllSorted() {
+        return this.carService.getAllSorted();
+    }
+
+
+
 //    List<Car> getByMarkaOrModel(String marka, String model);
 //
 //    List<Car> getByCategoryIdIn(List<Integer> categories);
-//
-//    List<Car> getByMarkaContains(String marka);
 //
 //    List<Car> getByCategoryStartsWith(String marka);
 //
