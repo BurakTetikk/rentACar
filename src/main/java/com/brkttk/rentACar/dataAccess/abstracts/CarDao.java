@@ -2,7 +2,6 @@ package com.brkttk.rentACar.dataAccess.abstracts;
 
 import com.brkttk.rentACar.entities.concretes.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ public interface CarDao extends JpaRepository<Car, Integer> {
 
     List<Car> getByMarkaOrModel(String marka, String model);
 
-    List<Car> getByCategoryIdIn(List<Integer> categories);
+    List<Car> getByCategoryIn(List<Integer> categories);
 
     List<Car> getByMarkaContains(String marka);
 

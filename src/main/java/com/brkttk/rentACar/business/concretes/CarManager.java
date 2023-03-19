@@ -55,8 +55,8 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public DataResult<List<Car>> getByCategoryIdIn(List<Integer> categories) {
-        return new SuccessDataResult<List<Car>>(this.carDao.getByCategoryIdIn(categories), "Araç listelendi.");
+    public DataResult<List<Car>> getByCategoryIn(List<Integer> categories) {
+        return new SuccessDataResult<List<Car>>(this.carDao.getByCategoryIn(categories), "Araç listelendi.");
     }
 
     @Override

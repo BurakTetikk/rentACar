@@ -35,7 +35,10 @@ public class CarsController {
         return this.carService.getById(id);
     }
 
-//    List<Car> getByMarka(String marka);
+    @GetMapping("/getByMarka")
+    public DataResult<List<Car>> getByMarka(@RequestParam String marka) {
+        return this.carService.getByMarka(marka);
+    }
 //
 //    List<Car> getByMarkaAndModel(String marka, String model);
 //

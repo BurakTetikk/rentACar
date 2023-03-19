@@ -20,7 +20,7 @@ public interface CarService {
 
     DataResult<List<Car>> getByMarkaOrModel(String marka, String model);
 
-    DataResult<List<Car>> getByCategoryIdIn(List<Integer> categories);
+    DataResult<List<Car>> getByCategoryIn(List<Integer> categories);
 
     DataResult<List<Car>> getByMarkaContains(String marka);
 
