@@ -4,6 +4,7 @@ import com.brkttk.rentACar.business.abstracts.CarService;
 import com.brkttk.rentACar.core.utilities.results.DataResult;
 import com.brkttk.rentACar.core.utilities.results.Result;
 import com.brkttk.rentACar.entities.concretes.Car;
+import com.brkttk.rentACar.entities.dtos.CarWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,6 +58,11 @@ public class CarsController {
     @GetMapping("/getAllSorted")
     public DataResult<List<Car>> getAllSorted() {
         return this.carService.getAllSorted();
+    }
+
+    @GetMapping("/getByProductWithCategoryDetails")
+    public DataResult<List<CarWithCategoryDto>> getByProductWithCategoryDetails() {
+        return this.carService.getByProductWithCategoryDetails();
     }
 
 
